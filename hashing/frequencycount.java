@@ -1,37 +1,24 @@
- public class frequencycount {
-  
-    public void countFreq(int[] arr, int n) {
-        
-        boolean[] visited = new boolean[n];
+import java.util.*;
+class frequencycount{
+    public void freqcount(int[] arr,int n){
+        HashMap<Integer, Integer> map = new HashMap<>();
 
-       
+        // Traverse the array and count frequencies
         for (int i = 0; i < n; i++) {
-           
-            if (visited[i])
-                continue;
+            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
+        }
 
-            int count = 1;
-            for (int j = i + 1; j < n; j++) {
-                if (arr[i] == arr[j]) {
-                    visited[j] = true; 
-                    count++;
-                }
-            }
-
-            
-            System.out.println(arr[i] + " " + count);
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue());
         }
     }
 
-    public static void main(String[] args) {
-        // Input array
-        int[] arr = {10, 5, 10, 15, 10, 5};
-        int n = arr.length;
-
-     
-        frequencycount s = new frequencycount();
-
         
-        s.countFreq(arr, n);
+ public static void main(String[] args) {
+        int[] arr={10,5,2,10};
+        int n=arr.length;
+        frequencycount sol= new frequencycount();
+        sol.freqcount(arr, n);
+
     }
 }
