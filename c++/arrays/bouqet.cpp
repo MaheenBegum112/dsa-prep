@@ -18,15 +18,15 @@ public:
             for (int i = 0; i < n; i++) {
 
                 if (day[i] <= d) {
-                    cnt++;
+                    cnt++;     //no of blommed flowers
                 }
                 else {
-                    nofB += cnt / k;
+                    nofB += cnt / k; //how many bouqets can be made
                     cnt = 0;
                 }
             }
 
-            // Last consecutive group
+           
             nofB += cnt / k;
 
             if (nofB >= m) {
